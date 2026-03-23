@@ -16,3 +16,7 @@ def test_get_task_by_id():
 def test_get_missing_task():
     result = get_task(999)
     assert "error" in result
+
+def test_filter_by_priority():
+    result = list_tasks(priority="high")
+    assert all(t["priority"] == "high" for t in result)

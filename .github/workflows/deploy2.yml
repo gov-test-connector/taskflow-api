@@ -1,0 +1,19 @@
+name: Deployment Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment: production   # 🔥 THIS IS THE IMPORTANT LINE
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        run: echo "Deploying to production"
